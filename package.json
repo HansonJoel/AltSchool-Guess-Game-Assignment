@@ -1,0 +1,17 @@
+{
+  "name": "guess-game-assignment",
+  "version": "1.0.0",
+  "description": "This is an assignment that shows my understanding of building a real-time web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Hanson",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "socket.io": "^4.8.1"
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hanson's Quiz Game</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HOME SCREEN -->
+      <div id="home">
+        <h2>Welcome to Hanson's Quiz Game</h2>
+        <h3>Create New Game</h3>
+        <input id="master-name" placeholder="Enter your name (Host)" />
+        <button id="create-game-btn">Create Game</button>
+
+        <hr />
+
+        <h3>Join An Existing Game</h3>
+        <input id="player-name" placeholder="Enter your name" />
+        <input id="game-id-input" placeholder="Enter Game ID" />
+        <button id="join-game-btn">Join Game</button>
+      </div>
+
+      <!-- LOBBY SCREEN -->
+      <div id="lobby" style="display: none">
+        <h2>Quiz Lobby</h2>
+        <div class="game-id-box">
+          Game ID: <span id="game-id-display"></span>
+        </div>
+
+        <h3>Players</h3>
+        <ul id="players-list"></ul>
+
+        <div id="lobby-master-controls" style="display: none; margin-top: 20px">
+          <h3>First Question</h3>
+          <textarea
+            id="lobby-question"
+            placeholder="Enter question..."
+            rows="2"
+          ></textarea>
+          <textarea
+            id="lobby-answer"
+            placeholder="Enter answer..."
+            rows="1"
+          ></textarea>
+          <button id="start-game-btn">Start Game</button>
+        </div>
+      </div>
+
+      <!-- GAME SCREEN -->
+      <div id="game" style="display: none">
+        <div class="game-header">
+          <h2 style="margin: 0">Game On</h2>
+          <div id="round-number">Round 1</div>
+        </div>
+
+        <p id="timer">60s</p>
+        <textarea id="game-question-display" rows="3" readonly></textarea>
+
+        <div id="player-controls">
+          <textarea
+            id="guess-input"
+            rows="2"
+            placeholder="Type your answer here..."
+          ></textarea>
+          <button id="guess-btn">Submit Answer</button>
+        </div>
+
+        <div id="feedback"></div>
+
+        <div id="next-round-panel" style="display: none">
+          <h3>Next Round Setup</h3>
+          <textarea
+            id="next-question"
+            placeholder="Enter next question..."
+            rows="2"
+          ></textarea>
+          <textarea
+            id="next-answer"
+            placeholder="Enter answer..."
+            rows="1"
+          ></textarea>
+          <button id="next-round-btn">Start Next Round</button>
+          <button class="end-game-btn-small" onclick="endGameRequest()">
+            End Entire Game
+          </button>
+        </div>
+
+        <h3>Leaderboard</h3>
+        <ul id="dashboard"></ul>
+      </div>
+
+      <!-- GAME OVER SCREEN -->
+      <div id="game-over" style="display: none">
+        <h2>GAME OVER</h2>
+        <p style="margin-bottom: 25px; color: #666; font-size: 1.1rem">
+          Here are the final standings:
+        </p>
+
+        <ul id="final-leaderboard"></ul>
+
+        <button onclick="location.reload()" style="margin-top: 30px">
+          Play Again
+        </button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
