@@ -14,7 +14,7 @@ class GameSession {
     this.gameStarted = false;
     this.roundActive = false;
     this.timer = null;
-    this.timeLeft = 30;
+    this.timeLeft = 60;
     this.roundNumber = 0;
 
     this.addPlayer(masterId, masterName, true);
@@ -47,7 +47,7 @@ class GameSession {
       if (!p.isMaster) p.attempts = 3;
     });
 
-    this.timeLeft = 30;
+    this.timeLeft = 60;
     return true;
   }
 
@@ -78,7 +78,7 @@ class GameSession {
 
     io.to(this.id).emit("dashboardUpdate", this.getPlayers());
 
-    this.timeLeft = 30;
+    this.timeLeft = 60;
 
     this.timer = setInterval(() => {
       this.timeLeft--;
