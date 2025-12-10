@@ -1,4 +1,4 @@
-const Player = require("./player");
+const Player = require("./Player");
 const {
   validateInput,
   validateMinPlayers,
